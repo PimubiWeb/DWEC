@@ -1,0 +1,1 @@
+setTimeout(function(){console.log("https://www.google.es/",2000)});
