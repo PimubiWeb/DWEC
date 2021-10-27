@@ -21,8 +21,11 @@ class Student extends Lambdasian {
     }
 
     listSubject(){
-        return `loving ${arr_favSubject}`
+        return `loving ${this.favSubjects}`
     }
     
 }
 
+a = new Student('pepe',12,'grx','b','daw',arr_favSubject);
+
+document.write(a.listSubject());
