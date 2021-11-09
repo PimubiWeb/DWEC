@@ -9,12 +9,18 @@ tecla Ctrl y azul si se pulsa Shift. En otro caso no deberá pintarse nada.
 */
 
 function main(){
-    document.body.innerHTML("dawfoja");
-    for(i=0;i<100;i++){
-        for(j=0;j<100;i++){
 
+    document.write('<table border="solid 1px">');
+    
+    for(i=0;i<100;i++){
+        document.write('<tr>')
+        for(j=0;j<100;j++){
+            document.write('<td onmousemouve=colorear></td>');
         }
+        document.write('</tr>');
     }
+    document.write('</table>');
+
 }
 
 window.addEventListener("load",main)

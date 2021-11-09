@@ -1,0 +1,11 @@
+body{
+    background-color: rgb(58, 58, 58);
+    margin-top: 100px;
+}
+
+.carousel-container {
+ width: 600px;
+ height: 400px;
+ position: relative;
+ margin: 0 auto; 
+}
