@@ -17,5 +17,3 @@ function validarCaracteresEspeciales(frase){
         return false;
     }
 }
-
-function
