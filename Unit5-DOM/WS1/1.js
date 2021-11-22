@@ -17,9 +17,11 @@ window.onload = () => {
     cont_google = 0;
     c = document.getElementsByTagName("a")
     for (const e of c) {
-        console.log(e)
+        if(e.href == "https://www.google.es/"){
+            cont_google++;
+        }
     }
     console.log(cont_google);
     
-    
+    d = document.getElementsByTagName("p")[2]   
 }
