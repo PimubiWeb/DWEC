@@ -9,6 +9,17 @@ Crea una página web con al menos tres párrafos de texto y dentro de ellos un n
 
 window.onload = () => {
     
-    a = document.getElementsByTagName("a").length
+    a = document.getElementsByTagName("a").length;
     console.log(a)
+    b = document.getElementsByTagName("p")[2].children[1];
+    console.log(b)
+
+    cont_google = 0;
+    c = document.getElementsByTagName("a")
+    for (const e of c) {
+        console.log(e)
+    }
+    console.log(cont_google);
+    
+    
 }
