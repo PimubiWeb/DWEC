@@ -23,5 +23,7 @@ window.onload = () => {
     }
     console.log(cont_google);
     
-    d = document.getElementsByTagName("p")[2]   
+    d = document.getElementsByTagName("p")[2];
+    e = d.children.length;
+    console.log(e);
 }
