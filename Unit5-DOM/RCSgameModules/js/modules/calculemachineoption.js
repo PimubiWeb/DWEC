@@ -1,6 +1,6 @@
-import { ROCK,PAPER,SCISSORS } from "./const";
+import { ROCK,PAPER,SCISSORS } from "./const.js";
 
-export function calcMachineOption() {
+export default function calcMachineOption() {
     const number = Math.floor(Math.random() * 3);
     switch (number) {
         case 0:

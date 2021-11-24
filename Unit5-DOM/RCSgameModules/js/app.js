@@ -1,14 +1,16 @@
+import calcResult from './modules/calcresult.js';
 import calcMachineOption from './modules/calculemachineoption.js';
-import * as c from './modules/const';
+import {ROCK,PAPER,SCISSORS,TIE,LOST,WIN,rockBtn,paperBtn,scissorsBtn,resultText,userImg,machineImg} from './modules/const.js';
 
-c.rockBtn.addEventListener("click", () => {
-    play(c.ROCK);
+
+rockBtn.addEventListener("click", () => {
+    play(ROCK);
 });
-c.paperBtn.addEventListener("click", () => {
-    play(c.PAPER);
+paperBtn.addEventListener("click", () => {
+    play(PAPER);
 });
 scissorsBtn.addEventListener("click", () => {
-    play(c.SCISSORS);
+    play(SCISSORS);
 });
 
 let isPlaying = false;
@@ -37,38 +39,16 @@ function play(userOption) {
         machineImg.src = "img/" + machineOption + ".svg";
 
         switch (result) {
-            case c.TIE:
+            case TIE:
                 resultText.innerHTML = "You have tied!";
                 break;
-            case c.WIN:
+            case WIN:
                 resultText.innerHTML = "You win!";
                 break;
-            case c.LOST:
+            case LOST:
                 resultText.innerHTML = "You lost!";
                 break;
         }
         isPlaying = false;
     }, 2000);
-}
-
-function calcResult(userOption, machineOption) {
-    if (userOption === machineOption) {
-        return c.TIE;
-
-    } else if (userOption === c.ROCK) {
-
-        if (machineOption === c.PAPER) return c.LOST;
-        if (machineOption === c.SCISSORS) return c.WIN;
-
-    } else if (userOption === c.PAPER) {
-
-        if (machineOption === c.SCISSORS) return c.LOST;
-        if (machineOption === c.ROCK) return c.WIN;
-
-    } else if (userOption === c.SCISSORS) {
-
-        if (machineOption === c.ROCK) return c.LOST;
-        if (machineOption === c.PAPER) return c.WIN;
-
-    }
 }
