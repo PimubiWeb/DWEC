@@ -1,5 +1,6 @@
-window.onload = () => {
+//ping pong game
 
+//creamos la bola
 class bola
 {
     constructor(radio, posicionX, posicionY, velocidadX, velocidadY, color, svgContenedor) {
@@ -18,12 +19,12 @@ class bola
         this.tagCircle.setAttribute("r", this.radio);
         svgContenedor.appendChild(this.tagCircle);
     }
-}
 
-var bolita = new bola(100,100,"red",50,60,60,);
-
-mueve(anchoContenedor, altoContenedor)
+    mueve(anchoContenedor, altoContenedor)
     {
+        this.posAnteriorX = this.x;
+        this.posAnteriorY = this.y;
+
         this.x += this.vX;
         this.y += this.vY;    
         
@@ -42,4 +43,32 @@ mueve(anchoContenedor, altoContenedor)
             this.y  = (this.y-this.radio<=0) ? this.radio: altoContenedor-this.radio;
         }
     }
+
+    dibuja()
+    {
+        this.tagCircle.setAttributeNS(null, "cx", this.x);
+        this.tagCircle.setAttributeNS(null, "cy", this.y);
+    }
+
+
+
+
+}
+
+window.onload = () => {
+    const svg = document.getElementById("panel");
+    var bolita = new bola(30,100,100,10,10,"red",svg);
+    
+    //setInterval(bolita.mueve(tamanoSVG.width, tamanoSVG.height,30));
+    elId = window.requestAnimationFrame(loop);
+
+    function loop()
+    {
+        tamanoSVG = svg.getBoundingClientRect();
+        bolita.mueve(tamanoSVG.width, tamanoSVG.height);
+        bolita.dibuja();
+        
+        elId = window.requestAnimationFrame(loop);
+    }
+
 }

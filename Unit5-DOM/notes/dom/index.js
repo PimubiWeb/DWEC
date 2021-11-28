@@ -14,6 +14,8 @@ window.onload = () => {
         let imagenNueva = document.createElement("img");
         imagenNueva.src = "pika.png";
         imagenNueva.style.border = '1px solid black';
+        imagenNueva.style.height = '100px';
+        imagenNueva.style.width = '100px';
         imagenNueva.addEventListener("click",borraImg);
         document.body.appendChild(imagenNueva);
     }
