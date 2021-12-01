@@ -50,4 +50,22 @@ class bola
 
 }
 
-export{bola};
+class rectangulo {
+    constructor(ancho,alto,posicionX,posicionY,color,svgContenedor) {
+        this.ancho = ancho;
+        this.alto = alto;
+        this.x = posicionX;
+        this.y = posicionY;
+        this.color = color;
+
+        // Creación del tag
+        this.tagRect = document.createElementNS("http://www.w3.org/2000/svg","rect");
+        this.tagRect.setAttribute("fill", this.color);
+        this.tagRect.setAttribute("width", this.ancho);
+        this.tagRect.setAttribute("height", this.alto);
+        this.tagRect.setAttribute("x", this.x);
+        this.tagRect.setAttribute("y", this.y);
+        svgContenedor.appendChild(this.tagRect);
+    }
+}
+export{bola, rectangulo};
