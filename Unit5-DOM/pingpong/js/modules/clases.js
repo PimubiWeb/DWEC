@@ -28,9 +28,10 @@ class bola
         
         // Comprobamos ahora si está fuera de los límites
         // Eje X
-        if (this.x-this.radio<=0 || this.x+this.radio >= anchoContenedor )
+        if (this.x-this.radio<=0 || this.x+this.radio >= anchoContenedor)
         {
-            this.vX *= -1;
+            this.vX *= 0;
+            this.vY *= 0;
             this.x  = (this.x-this.radio<=0) ? this.radio: anchoContenedor-this.radio;
         }
         
@@ -48,9 +49,15 @@ class bola
         this.tagCircle.setAttribute("cy", this.y);
     }
 
+    colisiona(barra){
+        let dx = this.x+this.radio - barra.posicionX;
+        if(dx == 0){
+            this.vX *=-1;
+        }
+    }
 }
 
-class rectangulo {
+class barra {
     constructor(ancho,alto,posicionX,posicionY,color,svgContenedor) {
         this.ancho = ancho;
         this.alto = alto;
@@ -68,4 +75,5 @@ class rectangulo {
         svgContenedor.appendChild(this.tagRect);
     }
 }
-export{bola, rectangulo};
+
+export{bola,barra};

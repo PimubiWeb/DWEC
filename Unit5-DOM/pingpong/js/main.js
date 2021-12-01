@@ -1,51 +1,46 @@
 //ping pong game
-import { bola,rectangulo } from './modules/clases.js';
+import { bola,barra } from './modules/clases.js';
 
 window.onload = () => {
+
+    //CONSTANT
     const svg = document.getElementById("panel");
     const white = "white";
     const tamanoSVG = svg.getBoundingClientRect();
+    const X = tamanoSVG.width;
+    const Y = tamanoSVG.height;
+    const vel = 7;
 
-    var bolita = new bola(15,tamanoSVG.width/2,tamanoSVG.height/2,7,7,"white",svg);
-
-    const espacioIzq = bolita.radio;
-    const espacioDerecha = tamanoSVG.width - 50; //no se porque pero no pinta bien el ancho si le pongo -bolita.radio
-    const espacioAltoMitad = tamanoSVG.height/2;
-    const espacioAlto = tamanoSVG.height;
+    //BALL
+    var bolita = new bola(15,X/2,Y/2,vel,vel,"white",svg);
     
-
+    //PADDLES
+    //dimensions
+    let margen = bolita.radio*2; //30
+    const margenIzq = margen;
+    const margenDer = tamanoSVG.width - 2*margen;
+    const mitadY = tamanoSVG.height/2;
     
-    var barraP1 = new rectangulo(30,160,espacioIzq,espacioAltoMitad,white,svg);
-    var barraP2 = new rectangulo(30,160,espacioDerecha,espacioAltoMitad,white,svg);
-    
-    let tope = 10;
-    while(tope < espacioAlto){
-        let mitad = tamanoSVG.width/2;
+    //creating paddles
+    var barraP1 = new barra(30,160,margenIzq,mitadY,white,svg);
+    var barraP2 = new barra(30,160,margenDer,mitadY,white,svg);
 
-        var barrita = new rectangulo(20,50,mitad,tope,white,svg)
-        
-        
-        tope += 150;
+    //NET
+    let espaciado = 5;
+    while(espaciado < Y){
+        let mitad = tamanoSVG.width/2; //cogo la posicion de la mitad respecto al eje x del svg para crear las lineas justo en el 
+        var barrita = new barra(20,50,X/2,espaciado,white,svg)
+        espaciado += 100;
     }
-    
-    //for(let i=0;i <= espacioAlto; i++)
 
-    bolita.mueve(tamanoSVG.width, tamanoSVG.height)
-    setInterval(() => {
-        bolita.mueve(tamanoSVG.width, tamanoSVG.height);
-        bolita.dibuja();
+
+    function render(){
+        setInterval(() => {
+            bolita.mueve(X,Y);
+            bolita.colisiona(barraP2);
+            bolita.dibuja();
+        }
+        ,10)
     }
-    ,10);
-
-
-    /* elId = window.requestAnimationFrame(loop);
-
-    function loop()
-    {
-        tamanoSVG = svg.getBoundingClientRect();
-        bolita.mueve(tamanoSVG.width, tamanoSVG.height);
-        bolita.dibuja();
-        elId = window.requestAnimationFrame(loop);
-    } */
-    
+    render();
 }
