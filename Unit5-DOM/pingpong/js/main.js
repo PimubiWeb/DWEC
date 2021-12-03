@@ -25,19 +25,21 @@ window.onload = () => {
     var barraP1 = new barra(30,160,margenIzq,mitadY,white,svg);
     var barraP2 = new barra(30,160,margenDer,mitadY,white,svg);
 
-    //NET
+    
+    //NET 
     let espaciado = 5;
     while(espaciado < Y){
         let mitad = tamanoSVG.width/2; //cogo la posicion de la mitad respecto al eje x del svg para crear las lineas justo en el 
         var barrita = new barra(20,50,X/2,espaciado,white,svg)
         espaciado += 100;
     }
-
+    
 
     function render(){
         setInterval(() => {
-            bolita.mueve(X,Y);
-            bolita.colisiona(barraP2);
+            //bolita.mueve(X,Y);
+            //bolita.colisiona(barraP2);
+            //bolita.colisiona(barraP1);
             bolita.dibuja();
         }
         ,10)

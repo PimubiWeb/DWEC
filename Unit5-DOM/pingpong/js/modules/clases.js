@@ -50,17 +50,21 @@ class bola
     }
 
     colisiona(barra){
-        let dx = this.x+this.radio - barra.posicionX;
-        if(dx == 0){
-            this.vX *=-1;
+        let derecha = this.x + this.radio;
+        let arriba = this.y - this.radio;
+        let abajo = this.y + this.radio;
+        let izquierda = this.x - this.radio;
+
+        if(derecha > barra.x && arriba > barra.y && abajo < barra.y + barra.altura){
+            this.vX *= -1;
         }
     }
 }
 
 class barra {
-    constructor(ancho,alto,posicionX,posicionY,color,svgContenedor) {
+    constructor(ancho,altura,posicionX,posicionY,color,svgContenedor) {
         this.ancho = ancho;
-        this.alto = alto;
+        this.altura = altura;
         this.x = posicionX;
         this.y = posicionY;
         this.color = color;
@@ -69,10 +73,16 @@ class barra {
         this.tagRect = document.createElementNS("http://www.w3.org/2000/svg","rect");
         this.tagRect.setAttribute("fill", this.color);
         this.tagRect.setAttribute("width", this.ancho);
-        this.tagRect.setAttribute("height", this.alto);
+        this.tagRect.setAttribute("height", this.altura);
         this.tagRect.setAttribute("x", this.x);
         this.tagRect.setAttribute("y", this.y);
         svgContenedor.appendChild(this.tagRect);
+    }
+
+    mueveArriba(e){
+        if(e){
+            console.log(e.Keycode)
+        }
     }
 }
 
