@@ -8,27 +8,37 @@ Nota: Asegúrate de que tu cookie acepta todo tipo de caracteres (como ñ, espac
 */
 
 window.onload = () => {
+    document.getElementById("crear").addEventListener("click",crear_cookie);
     document.getElementById("borrar").addEventListener("click",borrar_cookie);
-    nombre = crear_cookie();
+    
+}
+
 
     //saludo al usuario
-
     function crear_cookie(){
         console.log('yeii');
         if(document.cookie == ''){ //si no hay cookie le pido un nombre
-            cookie = prompt('introduce tu nombre jefe: ')
+            nombre = prompt('introduce tu nombre jefe: ')
             //creo la cookie
-            document.cookie = `usuario=${cookie}; max-age= 300`;
+            document.cookie = `usuario=${nombre}; max-age= 300`; //300seg -> 5min
             
         }
         else{ //si esta creada pues la recojo y yasta picha
-            cookie = document.cookie
-        }
-        return cookie;
-        
+            nombre = document.cookie;
+            alert(`Hola de nuevo ${nombre}`)
+        }   
     }
 
     function borrar_cookie(){
         document.cookie = `${nombre}; max-age=0`;
     }
-}
+    
+    function mostrar_cookie(){
+        console.log(document.cookie);
+    }
+
+/*
+Mejora el ejercicio anterior dando al usuario las opciones para que pueda configurar 
+el color de fondo, de párrafo y el tamaño de la letra
+*/
+
