@@ -30,7 +30,7 @@ window.onload = () => {
     let espaciado = 5;
     while(espaciado < Y){
         let mitad = tamanoSVG.width/2; //cogo la posicion de la mitad respecto al eje x del svg para crear las lineas justo en el 
-        var barrita = new barra(20,50,X/2,espaciado,white,svg)
+        var barrita = new barra(20,50,X/2-10,espaciado,white,svg)
         espaciado += 100;
     }
     
