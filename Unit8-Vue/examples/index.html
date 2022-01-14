@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="index.js"></script>
+
+</head>
+<body>
+    <div id="appvue">
+        Counter: {{ counter }}
+        <h1>MiDato : {{ midato }}</h1>
+        <p>variable: {{ nuevonombre }}</p>
+        <input type="text" v-model="nuevonombre">
+
+        <ol >
+            <li v-for="nombre in listanombres"> {{nombre}}</li>
+        </ol>
+
+        <h1 v-if="mostrar">Lista personas</h1>
+        <div v-for="per in listapersonas">
+            
+            <h2>nombre: {{per.nombre}}</h2>
+            <h2 v-if=>persona edad: {{per.edad}}</h2>
+        </div>
+        <button v-on:click="incrementa">incrementa contador</button>
+
+    </div>
+
+</body>
+</html>
