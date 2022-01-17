@@ -1,14 +1,13 @@
 const Tarea = {
     data() {
         return {
-            tarea1: "comprar pan",
             tarea: "",
             tarea_array: []
         }
     },
     methods: {
         metertarea() {
-            this.tarea.push(this.tarea) 
+            this.tarea_array.push(this.tarea) 
         }
     }
 }
