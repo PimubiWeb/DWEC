@@ -7,6 +7,18 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="index.js"></script>
+    <style>
+        *{text-align: center;
+            font-family: monospace;}
+        h1{
+            
+            background-color: darkslateblue;
+            
+            color: white;
+        }
+        
+
+    </style>
 </head>
 <body>
     <header>
@@ -14,8 +26,9 @@
     </header>
     <div id="app">
         <ol>
-            <li v-for="tarea in tarea_array">{{tarea}}</li>
+            <li v-for="(tarea,index) in tarea_array" v-bind:key="index">{{tarea.nombre}} | {{tarea.fecha}} | <span v-on:click="cambiarcompletado">{{tarea.completado}}</span> <button v-on:click="borrartarea">borrar</button></li> 
         </ol>
+        <p v-if="ok">tengo {{tarea_array.length}} tareas y {{sincompletar}} sin completar</p>
         <input type="text" v-model="tarea">
         <button v-on:click="metertarea">añadir tarea</button>
     </div>

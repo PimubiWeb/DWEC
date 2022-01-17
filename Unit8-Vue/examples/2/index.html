@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:id="nuevoId">
+            <p> Capa con id dinamico: {{ nuevoId }}</p>
+        </div>
+        <div v-for="pagina in array">
+            <a v-bind:href="pagina.link">{{pagina.enlance}}</a>
+        </div>
+    </div>
+</body>
+</html>
