@@ -8,26 +8,56 @@
     <script src="https://unpkg.com/vue@next"></script>
     <script src="index.js"></script>
     <style>
-        *{text-align: center;
-            font-family: monospace;}
+        *{
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+
+        }
         h1{
-            
             background-color: darkslateblue;
-            
             color: white;
         }
-        
+        li{
+            margin: 2rem;
+        }
+        span{
+            color: red;
+        }
+        ol {
+        padding-left: 2rem;
+        list-style-type: none;
+        }
 
+        ol li {
+            padding-left: 2rem;
+            background-image: url(star.svg);
+            background-position: 0 0;
+            background-size: 1.6rem 1.6rem;
+            background-repeat: no-repeat;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>ToDo List</h1>
     </header>
+
+
     <div id="app">
         <ol>
-            <li v-for="(tarea,index) in tarea_array" v-bind:key="index">{{tarea.nombre}} | {{tarea.fecha}} | <span v-on:click="cambiarcompletado">{{tarea.completado}}</span> <button v-on:click="borrartarea">borrar</button></li> 
+            <!-- TAREA -->
+            <li v-for="(tarea, index) in tarea_array" :key="index">
+                <strong>{{tarea.nombre}}</strong> | {{tarea.fecha}} | 
+                <span v-on:click="cambiarcompletado(index)">{{tarea.completado}}</span> ----
+                <button v-on:click="borrartarea(index)">borrar</button>
+            </li> 
         </ol>
+
+        <!-- NOTIFICACION TAREAS INCOMPLETADAS -->
         <p v-if="ok">tengo {{tarea_array.length}} tareas y {{sincompletar}} sin completar</p>
         <input type="text" v-model="tarea">
         <button v-on:click="metertarea">añadir tarea</button>
