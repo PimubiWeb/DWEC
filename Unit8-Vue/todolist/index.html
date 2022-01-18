@@ -7,60 +7,30 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="index.js"></script>
-    <style>
-        *{
-            text-align: center;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        }
-        div{
-            display: flex;
-            flex-direction: column;
-
-        }
-        h1{
-            background-color: darkslateblue;
-            color: white;
-        }
-        li{
-            margin: 2rem;
-        }
-        span{
-            color: red;
-        }
-        ol {
-        padding-left: 2rem;
-        list-style-type: none;
-        }
-
-        ol li {
-            padding-left: 2rem;
-            background-image: url(star.svg);
-            background-position: 0 0;
-            background-size: 1.6rem 1.6rem;
-            background-repeat: no-repeat;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>ToDo List</h1>
     </header>
 
-
+    <main>
     <div id="app">
         <ol>
             <!-- TAREA -->
             <li v-for="(tarea, index) in tarea_array" :key="index">
-                <strong>{{tarea.nombre}}</strong> | {{tarea.fecha}} | 
-                <span v-on:click="cambiarcompletado(index)">{{tarea.completado}}</span> ----
+                <strong>{{tarea.nombre}}</strong> | <i>{{tarea.descripcion}}</i>| {{tarea.fecha}} | 
+                <span v-on:click="cambiarestado(index)">{{tarea.completado}}</span> ----
                 <button v-on:click="borrartarea(index)">borrar</button>
             </li> 
         </ol>
 
-        <!-- NOTIFICACION TAREAS INCOMPLETADAS -->
-        <p v-if="ok">tengo {{tarea_array.length}} tareas y {{sincompletar}} sin completar</p>
+        <!-- NOTIFICACION DE TAREAS -->
+        <p>tengo {{tarea_array.length}} tareas y {{activas}} activas</p>
         <input type="text" v-model="tarea">
+        <input type="text" v-model="descripcion">
         <button v-on:click="metertarea">añadir tarea</button>
     </div>
+    </main>
 </body>
 </html>
