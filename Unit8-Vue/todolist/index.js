@@ -53,9 +53,6 @@ const app = {
             //bajar local storage
             if(JSON.parse(localStorage.getItem('tarea_array')))
                 this.tarea_array = JSON.parse(localStorage.getItem('tarea_array'));
-        
-        
-
     }
 }
 
