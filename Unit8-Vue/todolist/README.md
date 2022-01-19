@@ -3,11 +3,15 @@ Haciendo uso de Vue como Framework de desarrollo vamos a realizar una aplicació
 
 La aplicación debe:
 
-Dar de alta recordatorios, los cuales tienen: descripcion de la tarea, fecha de creacion y prioridad (alta, media, baja). 
+Dar de alta recordatorios, los cuales tienen: descripcion de la tarea, fecha de creacion y prioridad (alta, media, baja).
+
 Mostrar ellistado de tareas dadas de alta.
+
 Las tareas deben almacenarse en local en el navegador, de tal modo que al acceder a la web transcurrido un tiempo, automáticamente aparezcan las tareas que teníamos dadas de alta previamente.
 Debe ser posible borrar una tarea.
+
 Debe ser posible cambiar el estado de una tarea (completada o activa). Este cambio conlleva un cambio en la interfaz, apareciendo tachada la entrada correspondiente.
+
 Debe ser posible mostrar solo las completadas, sólo las activas o todos.
 Debe ser posible borrar todas las tareas completadas.
 Debe mostrarse un mensaje indicando el número total de tareas y cuántas se han completado.
