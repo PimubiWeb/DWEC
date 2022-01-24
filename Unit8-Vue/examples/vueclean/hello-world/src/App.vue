@@ -2,7 +2,9 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <micomponente v-show="mostrar" titulo="got temp1 ep1" @llegada= "muestra"></micomponente>
-  <!-- <tarea></tarea> -->
+  <tarea></tarea> 
+  <!-- <h1>Pablo</h1> -->
+  <img src="./assets/gatito.jpg" alt="gato"/>
 </template>
 
 <script>
