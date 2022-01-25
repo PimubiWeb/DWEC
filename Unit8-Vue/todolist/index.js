@@ -47,7 +47,6 @@ const app = {
         }
         
     },
-
     mounted(){ // Called right before the mounting begins: the render function is about to be called for the first time.
 
             //bajar local storage

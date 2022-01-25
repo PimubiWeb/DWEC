@@ -1,6 +1,16 @@
 <template>
-  <h1>TO DO LIST</h1>
-  <Tarea></Tarea>
+  <div id="app">
+
+    <!--HEADER-->
+    <header>
+        <h1>ToDo List dadw</h1>
+    </header>
+
+    <!-- Tarea -->
+    <Tarea></Tarea>
+    
+  
+  </div>
 </template>
 
 <script>
