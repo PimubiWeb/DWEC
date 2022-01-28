@@ -63,7 +63,7 @@ export default {
             return contador;
         },
         completadas(){
-            this.tarea_array
+            return this.tarea_array;
         }
         
     },
